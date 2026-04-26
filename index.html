@@ -129,63 +129,83 @@
         /* --- Hero Section --- */
         .hero {
             height: 100vh;
-            min-height: 700px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('file:///Users/higherpower/.gemini/antigravity/brain/11e4c86b-f2d4-44a1-b489-7449c641fbbb/phoenix_crystal_hero_1777231245574.png');
+            min-height: 800px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('file:///Users/higherpower/.gemini/antigravity/brain/11e4c86b-f2d4-44a1-b489-7449c641fbbb/phoenix_crystal_hero_1777231245574.png');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             color: #fff;
             position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: clamp(40px, 6vw, 72px);
-            margin-bottom: 20px;
+            font-size: clamp(40px, 5vw, 64px);
+            margin-bottom: 25px;
             line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero h1 span {
             color: var(--secondary-gold);
+            display: block;
         }
 
         .hero p {
             font-size: 18px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             opacity: 0.9;
             max-width: 600px;
+            border-left: 3px solid var(--secondary-gold);
+            padding-left: 20px;
         }
 
         .hero-form-box {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
             padding: 40px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 450px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            width: 100%;
         }
 
         .hero-form-box h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 10px;
             color: var(--secondary-gold);
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .form-group input {
             width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 4px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid #ddd;
+            border-radius: 6px;
             font-size: 16px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            border-color: var(--secondary-gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
         }
 
         .btn-submit {
@@ -458,11 +478,21 @@
         }
 
         /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero p {
+                margin: 0 auto 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             nav { display: none; }
-            .hero-content { text-align: center; }
-            .hero-form-box { margin: 40px auto 0; }
             .section { padding: 60px 0; }
+            .hero { height: auto; padding: 120px 0 60px; }
         }
     </style>
 </head>
@@ -487,11 +517,11 @@
 
     <section class="hero">
         <div class="container">
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+            <div class="hero-grid">
                 <div class="hero-content">
                     <h1 data-animate>Phoenix Crystal — <span>Логистика</span> совершенства</h1>
                     <p data-animate>Международные грузоперевозки «под ключ» из Китая, Европы и США с опытом 15 лет. Снизим сроки доставки до 50%.</p>
-                    <div style="display: flex; gap: 20px;" data-animate>
+                    <div style="display: flex; gap: 20px; justify-content: inherit;" data-animate>
                         <a href="#services" class="btn-call" style="padding: 18px 36px; font-size: 16px;">Наши услуги</a>
                     </div>
                 </div>
