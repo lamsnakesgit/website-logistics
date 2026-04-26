@@ -172,7 +172,16 @@
             padding-left: 20px;
         }
 
-        .hero-form-box {
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-btns {
+                justify-content: center;
+            }
+        }
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(25px);
             padding: 40px;
@@ -235,20 +244,27 @@
 
         .trust-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 40px;
             align-items: center;
-            justify-items: center;
         }
 
         .trust-item {
             text-align: center;
+            padding: 10px;
+            border-right: 1px solid #eee;
+        }
+
+        .trust-item:last-child {
+            border-right: none;
         }
 
         .trust-item h4 {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-gray);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         .trust-item p {
@@ -521,7 +537,7 @@
                 <div class="hero-content">
                     <h1 data-animate>Phoenix Crystal — <span>Логистика</span> совершенства</h1>
                     <p data-animate>Международные грузоперевозки «под ключ» из Китая, Европы и США с опытом 15 лет. Снизим сроки доставки до 50%.</p>
-                    <div style="display: flex; gap: 20px; justify-content: inherit;" data-animate>
+                    <div class="hero-btns" data-animate>
                         <a href="#services" class="btn-call" style="padding: 18px 36px; font-size: 16px;">Наши услуги</a>
                     </div>
                 </div>
