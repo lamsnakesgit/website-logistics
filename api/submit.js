@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, phone, route } = JSON.parse(req.body);
+    const { name, phone, route } = req.body;
     const token = process.env.TG_BOT;
     const chatId = process.env.TG_USER_ID_ALLOWED;
 
