@@ -22,3 +22,4 @@
 ## Бизнес-решения (Business Decisions)
 - [02.04.2026] Защита активов: все домены, хостинги и аккаунты регистрируем строго на личные данные (защита от риска неоплаты/кражи). (Asset protection: all domains/hosting registered on personal accounts).
 - [02.04.2026] SEO Стратегия: Использование поддоменов (kz., us.) с настройкой hreflang для международной индексации. Основной домен 2-го уровня остается под полным контролем. (SEO Strategy: Subdomains for regions with hreflang setup. Root domain remains under full control).
+- [10.05.2026] Архитектура голосового ИИ-агента (Voice AI Agent): Использование Zadarma (SIP/Номера) + Vapi.ai (Оркестрация ИИ) + n8n + AmoCRM. Выбрано как самое дешевое ($0.12/мин) и масштабируемое решение для рынков КЗ, УЗ, Дубай. (Architecture for Voice AI Agent: Zadarma + Vapi.ai + n8n + AmoCRM selected as the most cost-effective ($0.12/min) and scalable solution for KZ, UZ, Dubai).
