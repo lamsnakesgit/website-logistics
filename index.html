@@ -108,6 +108,15 @@
             transition: var(--transition);
         }
 
+        @media (max-width: 768px) {
+            header {
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(10px);
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+        }
+
         header.scrolled {
             background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
@@ -130,6 +139,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        @media (max-width: 375px) {
+            .logo { font-size: 18px; }
         }
 
         .logo span {
@@ -178,6 +191,10 @@
             background: #fff;
         }
 
+        @media (max-width: 375px) {
+            .btn-call { padding: 8px 16px; font-size: 12px; }
+        }
+
         /* --- Mobile Toggle --- */
         .mobile-toggle {
             display: none;
@@ -200,7 +217,11 @@
             align-items: center;
             color: #fff;
             position: relative;
-            padding-top: 80px;
+            padding-top: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding-top: 140px; }
         }
 
         .hero-grid {
@@ -642,8 +663,8 @@
     <style>
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             background: #25D366;
             color: #fff;
             padding: 12px 20px;
@@ -663,7 +684,12 @@
         .whatsapp-float i { font-size: 24px; }
         @media (max-width: 768px) {
             .whatsapp-float span { display: none; }
-            .whatsapp-float { padding: 15px; border-radius: 50%; }
+            .whatsapp-float { 
+                padding: 12px; 
+                border-radius: 50%; 
+                bottom: 15px;
+                right: 15px;
+            }
         }
     </style>
 
