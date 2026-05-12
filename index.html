@@ -3,8 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phoenix Crystal — Логистика совершенства</title>
-    <meta name="description" content="Международные грузоперевозки из Китая, Европы и США. Опыт 15 лет. Генеральный агент ведущих авиалиний.">
+    <title>Phoenix Crystal — Международная логистика премиум-класса</title>
+    <meta name="description" content="Профессиональные грузоперевозки из Китая, ОАЭ и Европы. Снижаем сроки доставки до 50%. Опыт 15 лет. Генеральный агент Qatar Airways и Air Arabia.">
+    <meta name="keywords" content="логистика, грузоперевозки из китая, авиаперевозки, автоперевозки, доставка грузов алматы, phoenix crystal">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://phoenix-crystal.kz/">
+    <meta property="og:title" content="Phoenix Crystal — Логистика совершенства">
+    <meta property="og:description" content="Международные грузоперевозки «под ключ» с гарантией сроков и сохранности.">
+    <meta property="og:image" content="https://phoenix-crystal.kz/og-image.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Phoenix Crystal",
+      "image": "https://phoenix-crystal.kz/logo.png",
+      "@id": "https://phoenix-crystal.kz/",
+      "url": "https://phoenix-crystal.kz/",
+      "telephone": "+77478765598",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Байзакова",
+        "addressLocality": "Алматы",
+        "addressCountry": "KZ"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    }
+    </script>
+
     <!-- Google Fonts: Montserrat & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,11 +161,28 @@
             text-decoration: none;
             font-size: 14px;
             transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-call:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            background: #fff;
+        }
+
+        /* --- Mobile Toggle --- */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+            z-index: 1100;
         }
 
         /* --- Hero Section --- */
@@ -506,7 +565,36 @@
         }
 
         @media (max-width: 768px) {
-            nav { display: none; }
+            .mobile-toggle { display: block; }
+            
+            nav { 
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--primary-black);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                z-index: 1050;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                font-size: 20px;
+            }
+
             .section { padding: 60px 0; }
             .hero { height: auto; padding: 120px 0 60px; }
         }
@@ -518,7 +606,7 @@
         <div class="container">
             <div class="nav-content">
                 <a href="#" class="logo">Phoenix <span>Crystal</span></a>
-                <nav>
+                <nav id="nav">
                     <ul>
                         <li><a href="#services">Услуги</a></li>
                         <li><a href="#about">О нас</a></li>
@@ -526,10 +614,49 @@
                         <li><a href="#contacts">Контакты</a></li>
                     </ul>
                 </nav>
-                <a href="tel:+77478765598" class="btn-call">Перезвоните мне</a>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <a href="tel:+77478765598" class="btn-call">Перезвоните мне</a>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="ph ph-list"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/77478765598" class="whatsapp-float" target="_blank">
+        <i class="ph ph-whatsapp-logo"></i>
+        <span>Написать в WhatsApp</span>
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            z-index: 2000;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        .whatsapp-float i { font-size: 24px; }
+        @media (max-width: 768px) {
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { padding: 15px; border-radius: 50%; }
+        }
+    </style>
 
     <section class="hero">
         <div class="container">
@@ -547,15 +674,15 @@
                     <p style="font-size: 14px; margin-bottom: 20px; opacity: 0.8;">Рассчитаем стоимость за 1 минуту</p>
                     <form id="leadForm">
                         <div class="form-group">
-                            <input type="text" placeholder="Ваше имя" required>
+                            <input type="text" id="formName" placeholder="Ваше имя" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="+7 (___) ___-__-__" required>
+                            <input type="tel" id="formPhone" placeholder="+7 (___) ___-__-__" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Откуда и куда">
+                            <input type="text" id="formRoute" placeholder="Откуда и куда">
                         </div>
-                        <button type="submit" class="btn-submit">Получить КП</button>
+                        <button type="submit" id="submitBtn" class="btn-submit">Получить КП</button>
                     </form>
                 </div>
             </div>
@@ -748,6 +875,26 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const nav = document.getElementById('nav');
+        
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('ph-list');
+            icon.classList.toggle('ph-x');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileToggle.querySelector('i').classList.add('ph-list');
+                mobileToggle.querySelector('i').classList.remove('ph-x');
+            });
+        });
+
         // Header transition on scroll
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -773,11 +920,41 @@
 
         document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-        // Form Submission
-        document.getElementById('leadForm').addEventListener('submit', (e) => {
+        // Form Submission to API
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            alert('Спасибо за заявку! Наш менеджер свяжется с вами в течение минуты.');
-            e.target.reset();
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerText;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'ОТПРАВКА...';
+
+            const formData = {
+                name: document.getElementById('formName').value,
+                phone: document.getElementById('formPhone').value,
+                route: document.getElementById('formRoute').value
+            };
+
+            try {
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('✅ Спасибо! Ваша заявка принята. Менеджер свяжется с вами в ближайшее время.');
+                    e.target.reset();
+                } else {
+                    throw new Error('Ошибка сервера');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Произошла ошибка. Пожалуйста, позвоните нам напрямую или напишите в WhatsApp.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+            }
         });
     </script>
 </body>
